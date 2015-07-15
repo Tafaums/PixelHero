@@ -121,6 +121,10 @@ public class PixelHero{
 		    				{
 		    					lattice[rowIdx][columnIdx] = new Wall();
 		    				}
+		    				else if(text.charAt(columnIdx) == 'p')
+		    				{
+		    					lattice[rowIdx][columnIdx] = new Potion();
+		    				}
 		    			}
 		    		}
 		    		rowIdx++;
@@ -425,7 +429,7 @@ public class PixelHero{
 
 			}
 			else{
-				//it's not a character maybe it's an item?
+				//it's not a character, maybe it's an item?
 				Weapon weapon = (Weapon)getObjectAt(row,column);
 				if(weapon != null){
 					//hero picks up the weapon
@@ -435,7 +439,19 @@ public class PixelHero{
 					//take the weapon off of the ground
 					lattice[row][column] = null;
 				}
+				else{
+					//it's not a character, maybe it's an item?
+					Potion potion = (Potion)getObjectAt(row,column);
+					if(potion != null){
+						//hero picks up the item
+						ourHero.health = ourHero.health + potion.health;
+						String temp = "The hero has picked up " + potion.description + "\n";
+						output.append(temp);
+						//take the item off of the ground
+						lattice[row][column] = null;
+					}
 			}
+		}
 		}
 		else
 		{

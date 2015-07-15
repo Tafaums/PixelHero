@@ -193,7 +193,7 @@ public class CA_GUI extends JPanel
         textPane.setPreferredSize(new Dimension(200, 75));
         this.add(textPane, BorderLayout.NORTH);
          
-        textArea.append("Welcome to dragon land. You are a cool dude that is here to slay dragons.\n");
+        textArea.append("Welcome to dragon land. You are a cool dude that is here to slay dragons. Look around, you might find something of use...\n");
         
         
         //Register for mouse events on blankArea and the panel.
